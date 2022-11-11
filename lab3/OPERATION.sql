@@ -7,3 +7,5 @@ SELECT City, count(OrderID) from Delivery GROUP BY City;
 SELECT City, count(OrderID) FROM Delivery GROUP BY City HAVING count(OrderID) >= 2;
 SELECT * FROM Ingredient ORDER BY Name;
 SELECT * FROM Orders JOIN Dessert ON Orders.DessertId = Dessert.Id;
+SELECT * FROM Ingredient WHERE Name LIKE 'С%';
+UPDATE Customers SET Name = 'Саша' WHERE Id=1;
