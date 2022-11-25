@@ -10,3 +10,4 @@ SELECT * FROM Orders JOIN Dessert ON Orders.DessertId = Dessert.Id;
 SELECT * FROM Ingredient WHERE Name LIKE 'С%';
 UPDATE Customers SET Name = 'Саша' WHERE Id=1;
 SELECT * FROM dessert ORDER BY typedessertid OFFSET 2 ROW;
+SELECT DISTINCT typedessertid FROM Dessert;
