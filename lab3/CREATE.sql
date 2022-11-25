@@ -27,7 +27,7 @@ CREATE TABLE Dessert
 	TypeDessertId INTEGER NOT NULL,
 	ConfectionsId INTEGER NOT NULL,
 	FOREIGN KEY (ConfectionsId) REFERENCES Confections (Id),
-	FOREIGN KEY (TypeDessertId) REFERENCES Dessert (Id)
+	FOREIGN KEY (TypeDessertId) REFERENCES TypeDessert (Id)
 );
 CREATE TABLE Basket
 (
