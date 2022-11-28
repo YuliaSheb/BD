@@ -8,4 +8,10 @@ SELECT  Name,Surname,Patronomic,
 		(SELECT TypeName FROM TypeDessert 
         WHERE TypeDessert.Id = Confections.TypeDessertId) AS Des
 FROM Confections;
+SELECT p.Id, p.Name
+FROM Dessert p
+WHERE p.Confectionsid IN
+   (SELECT c.Id
+    FROM Confections c
+    WHERE c.SurName like 'Ш%');
 
