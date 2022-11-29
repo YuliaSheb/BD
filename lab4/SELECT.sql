@@ -2,6 +2,9 @@ SELECT Id, Name
 FROM Ingredient  
 WHERE (Name LIKE 'С%') OR (Name ILIKE 'М%');  
 
+SELECT * FROM Orders
+WHERE prices BETWEEN 20 AND 40;
+
 SELECT  Name,
         (SELECT TypeName FROM TypeDessert 
         WHERE Typedessert.Id = Dessert.TypeDessertId) AS Type
