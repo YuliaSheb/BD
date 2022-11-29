@@ -33,3 +33,16 @@ FROM Dessert
 LEFT JOIN Confections ON Dessert.ConfectionsId = Confections.Id
 LEFT JOIN TypeDessert ON Dessert.TypeDessertId = TypeDessert.Id;
 SELECT Name, SurName FROM Customers UNION SELECT Name, SurName FROM Confections;
+
+SELECT Name FROM Dessert d 
+WHERE EXISTS (SELECT 1 FROM Orders o WHERE o.dessertId = d.Id
+       AND prices > 30 )
+ORDER BY Name;
+
+CREATE TABLE ConfectionsTest (LIKE Confections);
+INSERT INTO ConfectionsTest
+SELECT * FROM Confections where Surname LIKE 'Ш%';
+
+CREATE TABLE CustomersTest (LIKE Customers);
+INSERT INTO CustomersTest
+SELECT * FROM Customers where Patronomic ILIKE '%о%';
