@@ -46,3 +46,24 @@ SELECT * FROM Confections where Surname LIKE 'Ш%';
 CREATE TABLE CustomersTest (LIKE Customers);
 INSERT INTO CustomersTest
 SELECT * FROM Customers where Patronomic ILIKE '%о%';
+
+SELECT Prices,
+		 	CASE 
+				WHEN Prices> 0
+                	AND Prices <= 5 THEN 'Cheap'
+           	WHEN Prices > 5
+                	AND Prices <= 30 THEN 'Medium'
+           	WHEN Prices > 30 THEN 'Expensive'
+       	 	END duration
+FROM Orders;
+
+SELECT Prices,
+		 	CASE 
+				WHEN Prices> 0
+                	AND Prices <= 5 THEN 'Cheap'
+           	WHEN Prices > 5
+                	AND Prices <= 30 THEN 'Medium'
+           	WHEN Prices > 30 THEN 'Expensive'
+       	 	END duration,
+			(SELECT Name FROM Dessert WHERE Dessert.Id=Orders.DessertId)
+FROM Orders;
