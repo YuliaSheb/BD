@@ -70,5 +70,3 @@ SELECT Prices,
        	 	END duration,
 			(SELECT Name FROM Dessert WHERE Dessert.Id=Orders.DessertId)
 FROM Orders;
-
-EXPLAIN SELECT * FROM Account WHERE Id=1;
