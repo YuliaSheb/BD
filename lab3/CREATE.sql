@@ -27,8 +27,6 @@ CREATE TABLE Dessert
 	Cost INTEGER NOT NULL,
 	OrderId INTEGER NOT NULL,
 	TypeDessertId INTEGER NOT NULL,
-	ConfectionsId INTEGER NOT NULL,
-	FOREIGN KEY (ConfectionsId) REFERENCES Confections (Id),
 	FOREIGN KEY (TypeDessertId) REFERENCES TypeDessert (Id),
 	FOREIGN KEY (OrderId) REFERENCES Orders (Id)
 );
