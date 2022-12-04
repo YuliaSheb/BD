@@ -44,6 +44,14 @@ CREATE TABLE Dessert
 	FOREIGN KEY (TypeId) REFERENCES TypeDessert (Id),
 	FOREIGN KEY (OrderId) REFERENCES Orders (Id)
 );
+CREATE TABLE OrderDetails
+(
+        Id SERIAL PRIMARY KEY, 
+        OrderId INTEGER NOT NULL,
+        DessertId INTEGER NOT NULL,
+        FOREIGN KEY (OrderId) REFERENCES Orders (Id),
+        FOREIGN KEY (DessertId) REFERENCES Dessert (Id)
+);
 CREATE TABLE Customer
 (
 	Id SERIAL PRIMARY KEY,
