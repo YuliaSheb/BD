@@ -42,11 +42,21 @@ FOR EACH ROW EXECUTE PROCEDURE funcCost();
 3.
 CREATE OR REPLACE FUNCTION funcDelivery() RETURNS TRIGGER AS $$
    BEGIN
-      UPDATE Orders SET NEW.StateOrder = 'Отправлен на доставку'  WHERE StateOrder = 'Готов';
-      RETURN NEW;
+      UPDATE Orders SET StateOrder = 'Отправлен на доставку'  WHERE StateOrder = 'Готов';
+      RETURN NULL;
    END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER delivery_trigger AFTER UPDATE ON Orders
 FOR EACH ROW EXECUTE PROCEDURE funcDelivery();
 
+4.
+CREATE OR REPLACE FUNCTION funcState() RETURNS TRIGGER AS $$
+   BEGIN
+      INSERT INTO Orders(id, basketId,StateOrder,Prices) VALUES (NEW.Id,NEW.basketId,NEW.StateOrder='Обрабатывается',NEW.Prices);
+      RETURN NEW;
+   END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER state_trigger AFTER INSERT ON Orders
+FOR EACH ROW EXECUTE PROCEDURE funcState();
