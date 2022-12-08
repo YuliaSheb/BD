@@ -30,7 +30,7 @@ CREATE OR REPLACE FUNCTION funcCost() RETURNS TRIGGER AS $$
    BEGIN
    CASE TG_OP
       WHEN 'INSERT' THEN 
-	  IF NEW.Prices > 100 THEN INSERT INTO Orders(Id,basketId,StateOrder,prices) VALUES (NEW.Id,NEW.basketId,NEW.StateOrder,New.Prices = NEW.Prices - NEW.Prices * 0.2 );
+	  IF NEW.Prices > 100 THEN UPDATE Orders SET Prices = NEW.Prices - NEW.Prices * 0.2 WHERE Id = NEW.Id;
 	  END IF;
 	END CASE;
       RETURN NEW;
