@@ -1,12 +1,24 @@
 1. 
+CREATE TABLE Log(
+	LogId INTEGER NOT NULL,
+	StateLog TEXT NOT NULL,
+	Date TEXT NOT NULL
+)
+
 CREATE OR REPLACE FUNCTION auditfunc() RETURNS TRIGGER AS $$
    BEGIN
-      INSERT INTO Log(log_id, date) VALUES (new.ID, current_timestamp);
-      RETURN NEW;
+      IF TG_LEVEL = 'ROW' THEN
+    	CASE TG_OP
+      		WHEN 'DELETE' THEN INSERT INTO Log(logid, StateLog, date) VALUES (old.ID, 'DELETE',current_timestamp);
+      		WHEN 'UPDATE' THEN INSERT INTO Log(logid, StateLog, date) VALUES (new.ID, 'UPDATE',current_timestamp);
+      		WHEN 'INSERT' THEN INSERT INTO Log(logid, StateLog, date) VALUES (new.ID, 'INSERT',current_timestamp);
+    	END CASE;
+  	  END IF;
+        RETURN NEW;
    END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER log_trigger AFTER INSERT ON Account
+CREATE TRIGGER log_trigger AFTER INSERT OR UPDATE OR DELETE ON Account
 FOR EACH ROW EXECUTE PROCEDURE auditfunc();
 
 INSERT INTO Account VALUES (11,'testUsers','qwerty')
@@ -26,4 +38,15 @@ $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER cost_trigger AFTER INSERT ON Orders
 FOR EACH ROW EXECUTE PROCEDURE funcCost();
+
+3.
+CREATE OR REPLACE FUNCTION funcDelivery() RETURNS TRIGGER AS $$
+   BEGIN
+      UPDATE Orders SET NEW.StateOrder = 'Отправлен на доставку'  WHERE StateOrder = 'Готов';
+      RETURN NEW;
+   END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER delivery_trigger AFTER UPDATE ON Orders
+FOR EACH ROW EXECUTE PROCEDURE funcDelivery();
 
