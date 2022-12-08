@@ -50,3 +50,13 @@ $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER delivery_trigger AFTER UPDATE ON Orders
 FOR EACH ROW EXECUTE PROCEDURE funcDelivery();
+4.
+CREATE OR REPLACE FUNCTION funcState() RETURNS TRIGGER AS $$
+   BEGIN
+      UPDATE Orders SET StateOrder = 'Обрабатывается'  WHERE StateOrder = '';
+      RETURN NULL;
+   END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER state_trigger AFTER UPDATE ON Orders
+FOR EACH ROW EXECUTE PROCEDURE funcState();
