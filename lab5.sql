@@ -72,3 +72,17 @@ AS $$
 $$ LANGUAGE plpgsql ;
 
 call display_message('This is my test case');
+
+2.
+CREATE OR REPLACE PROCEDURE typeDessert_traverse() LANGUAGE plpgsql AS $$
+	DECLARE
+ 		type_rec record;
+ 	BEGIN
+ 		for type_rec in (select Id,TypeName from TypeDessert order by Id)
+   		loop
+ 			RAISE NOTICE 'Type Id is : % , Name is : %', type_rec.Id,type_rec.TypeName;
+   		end loop;
+	END;
+$$ ;
+
+call typeDessert_traverse();
