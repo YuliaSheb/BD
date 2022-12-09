@@ -60,3 +60,15 @@ $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER state_trigger AFTER UPDATE ON Orders
 FOR EACH ROW EXECUTE PROCEDURE funcState();
+
+
+PROCEDURE
+1.Test
+CREATE OR REPLACE PROCEDURE display_message (INOUT msg TEXT)
+AS $$
+   BEGIN
+	RAISE NOTICE 'Procedure Parameter: %', msg ;
+   END ;
+$$ LANGUAGE plpgsql ;
+
+call display_message('This is my test case');
