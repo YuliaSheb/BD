@@ -86,3 +86,16 @@ CREATE OR REPLACE PROCEDURE typeDessert_traverse() LANGUAGE plpgsql AS $$
 $$ ;
 
 call typeDessert_traverse();
+
+3.
+CREATE OR REPLACE PROCEDURE Dessert_traverse() LANGUAGE plpgsql AS $$
+	DECLARE
+ 		dessert_rec record;
+ 	BEGIN
+ 		for dessert_rec in (select Dessert.Name,TypeDessert.TypeName from Dessert JOIN TypeDessert ON Dessert.TypeDessertId = TypeDessert.Id )
+   		loop
+ 			RAISE NOTICE 'Type is : % , Dessert is : %', dessert_rec.TypeName,dessert_rec.Name;
+   		end loop;
+	END;
+$$ ;
+call Dessert_traverse();
