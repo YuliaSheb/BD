@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B0C4DE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bd.BasketController">
+    <children>
+        <AnchorPane layoutY="86.0" prefHeight="314.0" prefWidth="600.0" style="-fx-background-color: #E6E6FA;">
+            <children>
+                <Button fx:id="add" layoutX="432.0" layoutY="243.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="151.0" style="-fx-background-color: #B0C4DE;" text="Оформить заказ">
+                    <font>
+                        <Font name="CentSchbkCyrill BT Bold Italic" size="14.0" />
+                    </font>
+                </Button>
+                <TableView fx:id="tablee" layoutX="14.0" layoutY="18.0" prefHeight="275.0" prefWidth="414.0">
+                    <columns>
+                        <TableColumn fx:id="OrderIdColumn" prefWidth="60.0" text="OrderId" />
+                        <TableColumn fx:id="DessertColumn" text="Dessert" />
+                        <TableColumn fx:id="TypeColumn" prefWidth="110.0" text="Type" />
+                  <TableColumn fx:id="PriceColumn" prefWidth="75.0" text="Price" />
+                  <TableColumn fx:id="StateOrderColumn" prefWidth="75.0" text="StateOrder" />
+                    </columns>
+                </TableView>
+                <TextField fx:id="name1" layoutX="472.0" layoutY="21.0" prefHeight="25.0" prefWidth="101.0" promptText="Id" />
+            </children></AnchorPane>
+        <Label layoutX="141.0" layoutY="14.0" text="Корзина">
+            <font>
+                <Font name="CentSchbkCyrill BT Bold Italic" size="44.0" />
+            </font>
+        </Label>
+        <Button fx:id="Exit" layoutX="471.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Выйти" />
+        <Button fx:id="Dessert" layoutX="471.0" layoutY="45.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Десерты" />
+    </children>
+</AnchorPane>

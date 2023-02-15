@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="637.0" style="-fx-background-color: #B0C4DE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bd.DessertCController">
+    <children>
+        <AnchorPane layoutY="79.0" prefHeight="321.0" prefWidth="637.0" style="-fx-background-color: #E6E6FA;">
+            <children>
+                <TableView fx:id="tablee" layoutX="2.0" layoutY="62.0" prefHeight="255.0" prefWidth="467.0">
+                    <columns>
+                        <TableColumn fx:id="IdColumn" prefWidth="50.0" text="Id" />
+                        <TableColumn fx:id="nameColumn" prefWidth="90.0" text="Name" />
+                  <TableColumn fx:id="TypeColumn" text="Type" />
+                  <TableColumn fx:id="IngredientColumn" prefWidth="70.0" text="Ingred" />
+                  <TableColumn fx:id="ProteinColumn" prefWidth="60.0" text="Protein" />
+                  <TableColumn fx:id="FatColumn" prefWidth="60.0" text="Fat" />
+                  <TableColumn fx:id="CarbColumn" prefWidth="60.0" text="Carb" />
+                    </columns>
+                </TableView>
+            <Button fx:id="AddNew" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="204.0" style="-fx-background-color: #B0C4DE; -fx-border-color: #C0C0C0;" text="Добавить новый десерт">
+               <font>
+                  <Font name="CentSchbkCyrill BT Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="Update" layoutX="233.0" layoutY="20.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="165.0" style="-fx-background-color: #B0C4DE; -fx-border-color: #C0C0C0;" text="Изменить">
+               <font>
+                  <Font name="CentSchbkCyrill BT Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="Delete" layoutX="420.0" layoutY="21.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #B0C4DE; -fx-border-color: #C0C0C0;" text="Удалить">
+               <font>
+                  <Font name="CentSchbkCyrill BT Bold" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="UpName" layoutX="475.0" layoutY="79.0" />
+            <Text layoutX="473.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="48.80340576171875">
+               <font>
+                  <Font name="CentSchbkCyrill BT Bold Italic" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="473.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="48.80340576171875">
+               <font>
+                  <Font name="CentSchbkCyrill BT Bold Italic" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="473.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Protein" wrappingWidth="76.13671875">
+               <font>
+                  <Font name="CentSchbkCyrill BT Bold Italic" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="478.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fat" wrappingWidth="48.80340576171875">
+               <font>
+                  <Font name="CentSchbkCyrill BT Bold Italic" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="UpType" layoutX="475.0" layoutY="121.0" />
+            <TextField fx:id="UpProtein" layoutX="474.0" layoutY="203.0" />
+            <TextField fx:id="UpFat" layoutX="475.0" layoutY="247.0" />
+            <TextField fx:id="UpCarbohydrate" layoutX="475.0" layoutY="291.0" />
+            <Text layoutX="478.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carbohydrate" wrappingWidth="121.33333333333348">
+               <font>
+                  <Font name="CentSchbkCyrill BT Bold Italic" size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="473.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredient" wrappingWidth="76.13671875">
+               <font>
+                  <Font name="CentSchbkCyrill BT Bold Italic" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="UpIngredient" layoutX="474.0" layoutY="163.0" />
+            <TextField fx:id="UpId" layoutX="574.0" layoutY="49.0" prefHeight="25.0" prefWidth="49.0" />
+            <Text layoutX="539.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="48.80340576171875">
+               <font>
+                  <Font name="CentSchbkCyrill BT Bold Italic" size="14.0" />
+               </font>
+            </Text>
+            </children></AnchorPane>
+        <Label layoutX="217.0" layoutY="21.0" text="Dessert">
+            <font>
+                <Font name="CentSchbkCyrill BT Bold Italic" size="44.0" />
+            </font>
+        </Label>
+        <Button fx:id="Profile" layoutX="454.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="121.0" text="Выйти">
+            <font>
+                <Font name="CentSchbkCyrill BT Bold" size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="Orders" layoutX="454.0" layoutY="49.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="121.0" text="Заказы">
+            <font>
+                <Font name="CentSchbkCyrill BT Bold" size="14.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>
